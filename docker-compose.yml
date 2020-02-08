@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  todo-app-backend:
+    build:
+      context: ./todo-back
+    ports:
+      - '8080:8080/tcp'
+  todo-app-frontend:
+    build:
+      context: ./todo-angular
+    ports:
+      - '4200:4200/tcp'
+
+networks:
+  default:
+    name: todo-app
