@@ -9,6 +9,7 @@
       <ng-template #spanTemplate>
         <span>{{ index + 1 }} - {{ task.description }}</span>
       </ng-template>
+      <button (click)="updateTask(task)">{{ task.done ? 'Undo' : 'Done' }}</button>
     </li>
   </ul>
 </div>

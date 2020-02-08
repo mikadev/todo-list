@@ -33,5 +33,15 @@ export class TaskComponent implements OnInit {
     }
   }
 
+  updateTask(task: Task) {
+    task.done = !task.done;
+    this.http.put<Task>(environment.baseUrl, task)
+      .pipe(catchError(() => {
+        task.done = !task.done;
 
+        return throwError(
+          'Something bad happened; please try again later.');
+      }))
+      .subscribe();
+  }
 }
