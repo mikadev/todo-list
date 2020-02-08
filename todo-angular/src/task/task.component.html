@@ -1,0 +1,14 @@
+<div id="todo-list">
+  <label>
+    Add task
+    <input (keyup.enter)="addTask()" type="text" [(ngModel)]="task">
+  </label>
+  <ul>
+    <li *ngFor="let task of tasks let index = index;">
+      <del *ngIf="task.done else spanTemplate">{{ index + 1 }} - {{ task.description }}</del>
+      <ng-template #spanTemplate>
+        <span>{{ index + 1 }} - {{ task.description }}</span>
+      </ng-template>
+    </li>
+  </ul>
+</div>
